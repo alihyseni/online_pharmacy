@@ -1,11 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+
 <style>
 .contact-wrapper{
     margin:50px auto;
 }
 </style>
+
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
