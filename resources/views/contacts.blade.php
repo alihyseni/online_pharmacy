@@ -13,7 +13,7 @@ iframe{
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-<div class="container contact-wrapper">
+<div class="container">
     <h4>Contact</h4>
     <div class="row">
         <div class="col-md-4">
