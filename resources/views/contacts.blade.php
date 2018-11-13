@@ -2,9 +2,8 @@
 
 @section('content')
 <style>
-
 .contact-wrapper{
-    margin-top:50px;
+    margin:50px auto;
 }
 </style>
 @if (Session::has('message'))
