@@ -9,7 +9,7 @@
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('contacts/create') }}">About Us</a>
+                    <a class="nav-link" href="{{ route('contacts.create') }}">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('news') }}">News</a>
