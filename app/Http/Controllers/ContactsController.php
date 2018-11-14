@@ -39,7 +39,7 @@ class ContactsController extends Controller
         $request->validate([
             'address' => 'required|min:5',
             'phone' => 'required|numeric|min:8',
-            'email' => 'required|unique|unique:contacts',
+            'email' => 'required|unique:contacts',
         ]);
         
         $contacts = Contacts::create(['address' => $request->address,'phone' => $request->phone, 'email' => $request->email]);
