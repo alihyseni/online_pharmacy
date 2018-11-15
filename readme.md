@@ -9,5 +9,5 @@
 
 ## About Pharmacy
 
-Pharmacy is a online store that you can se our new products and you can buy drugs.
+Pharmacy is a online store that you can se our new products and you can buy drugs build using laravel framework.
 
