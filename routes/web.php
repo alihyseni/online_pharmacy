@@ -20,7 +20,7 @@ Route::resource('contacts','ContactsController');
 // Route::post('contacts', 'ContactController@store')->name('contacts.store');
 
 
-Route::get('admin/create-product','ProductsController@index')->name('create.products');
+Route::resource('admin/create-product','ProductsController');
 
 /*
 Route::get('admin/create-product',function(){

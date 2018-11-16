@@ -15,12 +15,13 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('brands_id')->unsigned();
+            $table->integer('brands_id')->unsigned()->default('2');
             $table->string('name');
             $table->text('description');
             $table->text('ingredients');
             $table->text('usage');
             $table->float('price');
+            $table->string('image');
             $table->timestamps();
             $table->foreign('brands_id')->references('id')->on('brands')->onDelete('cascade');
         });

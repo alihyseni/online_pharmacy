@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <h2 class="page-title">Add Product</h2>
 
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('create-product.store') }}" enctype="multipart/form-data">
             <div class="form-group">
             {{ csrf_field() }}
                 <label for="exampleFormControlInput1">Product Name *</label>
