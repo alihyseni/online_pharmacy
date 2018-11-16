@@ -18,3 +18,15 @@ Route::get('', function(){
 Route::resource('contacts','ContactsController');
 // Route::get('contacts', 'ContactController@index')->name('contacts.index');
 // Route::post('contacts', 'ContactController@store')->name('contacts.store');
+
+
+Route::get('admin/create-product','ProductsController@index')->name('create.products');
+
+/*
+Route::get('admin/create-product',function(){
+    
+    $tasks = Product::all();
+    return view('tasks.index',compact('tasks',$product_categories));
+    return view('admin.product-create');
+})->name('admin.product.create');
+*/

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Brands;
 use Illuminate\Http\Request;
 
-class ProductCategoryController extends Controller
+class BrandsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     /**
@@ -23,7 +24,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -40,10 +41,10 @@ class ProductCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Brands  $brands
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Brands $brands)
     {
         //
     }
@@ -51,10 +52,10 @@ class ProductCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Brands  $brands
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Brands $brands)
     {
         //
     }
@@ -63,10 +64,10 @@ class ProductCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Brands  $brands
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brands $brands)
     {
         //
     }
@@ -74,10 +75,10 @@ class ProductCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Brands  $brands
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Brands $brands)
     {
         //
     }

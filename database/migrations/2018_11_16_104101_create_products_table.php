@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Migrations\Migration; 
 
 class CreateProductsTable extends Migration
 {
@@ -15,14 +15,14 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id')->unsigned();
+            $table->integer('brands_id')->unsigned();
             $table->string('name');
             $table->text('description');
             $table->text('ingredients');
             $table->text('usage');
             $table->float('price');
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('product_categories')->onDelete('cascade');
+            $table->foreign('brands_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 
