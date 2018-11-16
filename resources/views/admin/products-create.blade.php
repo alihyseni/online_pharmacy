@@ -18,8 +18,9 @@
                 <label for="exampleFormControlSelect1">Category *</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category" required>
                     <option value="" disabled selected hidden>Select Category</option>
-                    <option>Swanson</option>
-                    <option>Alkaloid</option>
+                    @foreach($products as $product)
+                    <option value="{{$product->name}}" >{{$product->name}}</option>
+                    @endforeach
                 </select>
             </div>
        
@@ -52,6 +53,15 @@
                 <button type="submit" class="btn btn-success">Add Product</button>
             </div>
             </form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
         </div>
     </div>
