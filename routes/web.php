@@ -24,4 +24,4 @@ Route::get('products',function(){
   return view('products', ['products' => $products]);
 })->name('products');
 
-Route::get('product/{id}','ProductsController@show')->name('create-product.show');
+Route::get('product/{id}','ProductsController@show')->name('product.show');
