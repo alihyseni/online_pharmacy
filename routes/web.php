@@ -11,14 +11,9 @@
 |
 */
 
-Route::get('', function(){
-    return view('home');
-})->name('home');
+Route::get('', function(){ return view('home'); })->name('home');
 
 Route::resource('contacts','ContactsController');
-// Route::get('contacts', 'ContactController@index')->name('contacts.index');
-// Route::post('contacts', 'ContactController@store')->name('contacts.store');
-
 
 Route::resource('admin/create-product','ProductsController');
 
@@ -26,6 +21,7 @@ Route::get('products',function(){
   $products = DB::table('products')->get();
   return view('products', ['products' => $products]);
 })->name('products');
+
 
 /*
 Route::get('admin/create-product',function(){
