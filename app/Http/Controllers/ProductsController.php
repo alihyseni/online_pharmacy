@@ -41,7 +41,7 @@ class ProductsController extends Controller
 //        validation
         $this->validate($request,[
             'name'=>'required',
-            //'image'=>'image|mimes:png,jpg,jpeg|max:10000'
+            'image'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 //        image upload
         $image=$request->image;
@@ -51,7 +51,7 @@ class ProductsController extends Controller
             $formInput['image']=$imageName;
         }
         Products::create($formInput);
-        return redirect()->route('home');
+        return redirect()->route('products');
     }
 
     /**

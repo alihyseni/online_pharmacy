@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-sm bg-success navbar-dark">
     <div class="container">
         <div class="col-md-2 float-left">
-            <p class="text-white">Pharmacy</p>
+            <img src="{{ asset('images')}}/pharmacy-logo.jpg" img="img-fluid" style="width:90px">
+            <a href='https://www.freepik.com/free-vector/pharmacy-logos-set_945703.htm'>Designed by Raftel</a>
         </div>
         <div class="col-md-10">
             <ul class="navbar-nav float-right">
@@ -9,10 +10,10 @@
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contacts.create') }}">About Us</a>
+                    <a class="nav-link" href="{{ route('create-product.index') }}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('news') }}">News</a>
+                    <a class="nav-link" href="{{ route('products') }}">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('partners') }}">Partners</a>

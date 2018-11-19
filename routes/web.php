@@ -22,9 +22,14 @@ Route::resource('contacts','ContactsController');
 
 Route::resource('admin/create-product','ProductsController');
 
+Route::get('products',function(){
+  $products = DB::table('products')->get();
+  return view('products', ['products' => $products]);
+})->name('products');
+
 /*
 Route::get('admin/create-product',function(){
-    
+
     $tasks = Product::all();
     return view('tasks.index',compact('tasks',$product_categories));
     return view('admin.product-create');

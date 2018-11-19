@@ -23,7 +23,7 @@
                     @endforeach
                 </select>
             </div>
-       
+
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
@@ -36,9 +36,9 @@
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Ingredients</label>
-                <textarea class="form-control" id="exampleFormControlTextarea3" rows="2" name="ingredients"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="3" name="ingredients"></textarea>
             </div>
-            
+
             <div class="form-group">
                 <label for="exampleFormControlInput1">Price</label>
                 <input type="number" class="form-control" id="exampleFormControlInput2" step="any" name="price">
