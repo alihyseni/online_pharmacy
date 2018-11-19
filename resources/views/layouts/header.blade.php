@@ -2,7 +2,6 @@
     <div class="container">
         <div class="col-md-2 float-left">
             <img src="{{ asset('images')}}/pharmacy-logo.jpg" img="img-fluid" style="width:90px">
-            <a href='https://www.freepik.com/free-vector/pharmacy-logos-set_945703.htm'>Designed by Raftel</a>
         </div>
         <div class="col-md-10">
             <ul class="navbar-nav float-right">

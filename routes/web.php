@@ -13,21 +13,15 @@
 
 Route::get('', function(){ return view('home'); })->name('home');
 
-Route::resource('contacts','ContactsController');
+Route::get('contacts','ContactsController@index')->name('contacts.index');
 
-Route::resource('admin/create-product','ProductsController');
+Route::get('admin/create-product','ProductsController@index')->name('create-product.index');
+
+Route::post('admin/create-product','ProductsController@store')->name('create-product.store');
 
 Route::get('products',function(){
   $products = DB::table('products')->get();
   return view('products', ['products' => $products]);
 })->name('products');
 
-
-/*
-Route::get('admin/create-product',function(){
-
-    $tasks = Product::all();
-    return view('tasks.index',compact('tasks',$product_categories));
-    return view('admin.product-create');
-})->name('admin.product.create');
-*/
+Route::get('product','ProductsController@show')->name('create-product.show');
