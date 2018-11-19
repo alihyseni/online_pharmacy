@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+Contact | Pharmacy
+@endsection
+
 @section('content')
 
 <style>
@@ -29,4 +33,5 @@
         </div>
     </div>
 </div>
+
 @endsection

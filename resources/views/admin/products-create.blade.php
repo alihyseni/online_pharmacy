@@ -18,8 +18,8 @@
                 <label for="exampleFormControlSelect1">Category *</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category" required>
                     <option value="" disabled selected hidden>Select Category</option>
-                    @foreach($products as $product)
-                    <option value="{{$product->name}}" >{{$product->name}}</option>
+                    @foreach($brands as $brand)
+                    <option value="{{$brand->name}}" >{{$brand->name}}</option>
                     @endforeach
                 </select>
             </div>

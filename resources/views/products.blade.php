@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+  Products | Pharmacy
+@endsection
+
 @section('content')
 
   <div class="container">
@@ -15,10 +19,10 @@
               </div>
 
               <div class="name">
-                <h4>{{ $product->name }}</h4>
+                <h4><a href="{{url('product')}}/{{$product->id}}">{{ $product->name }}</a></h4>
               </div>
 
-              <div class="desctipton">
+              <div class="descrtipton">
                 <p>{{ str_limit($product->description, 65) }}</p>
               </div>
 

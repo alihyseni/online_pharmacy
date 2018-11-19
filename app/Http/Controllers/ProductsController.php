@@ -15,8 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Brands::all();
-        return view('admin.products-create',compact('products',$products));
+        $brands = Brands::all();
+        return view('admin.products-create',compact('brands',$brands));
     }
 
     /**
@@ -60,9 +60,10 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function show(Products $products)
-    {
-        //
+    public function show(Products $id)
+    {   
+        $product = Products::findOrFail($id);
+        return view('single-product', compact('product', $product));
     }
 
     /**

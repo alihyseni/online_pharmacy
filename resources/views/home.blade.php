@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('title')
+    Home | Pharmacy
+@endsection
+
+@section('title')
     Online Pharmacy
 @endsection
 

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-success navbar-dark">
     <div class="container">
         <div class="col-md-2 float-left">
-            <img src="{{ asset('images')}}/pharmacy-logo.jpg" img="img-fluid" style="width:90px">
+            <a href="{{ url('/') }}"> <img src="{{ asset('images')}}/pharmacy-logo.jpg" img="img-fluid" style="width:90px"></a>
         </div>
         <div class="col-md-10">
             <ul class="navbar-nav float-right">
