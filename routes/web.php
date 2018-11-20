@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('', function(){ return view('home'); })->name('home');
-
-Route::get('contacts','ContactsController@index')->name('contacts.index');
-
 
 //---------- ADMIN routes
 
@@ -28,6 +24,10 @@ Route::post('admin/create-product','ProductsController@store')->name('create-pro
 
 //----------------------------------------------------------------
 
+
+Route::get('', function(){ return view('home'); })->name('home');
+
+Route::get('contacts','ContactsController@index')->name('contacts.index');
 
 Route::resource('products','ProductsController');
 
