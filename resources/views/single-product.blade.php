@@ -16,7 +16,7 @@
                         <h5>Description</h5>
                         <p>{{ $product->description }}</p>
                         <h5>Ingredients</h5>
-                        <p>{{ $product->igredients }}</p>
+                        <p>{{ $product->ingredients }}</p>
                         <h5>Usage</h5>
                         <p>{{ $product->usage }}</p>
                         <h5>Price</h5>
