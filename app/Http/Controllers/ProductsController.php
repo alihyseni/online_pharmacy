@@ -15,8 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $brands = Brands::all();
-        return view('admin.products-create',compact('brands',$brands));
+        $products = Products::all()->sortByDesc('id');
+        return view('products', compact('products', $products));
     }
 
     /**
@@ -32,23 +32,23 @@ class ProductsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $formInput=$request->except('image');
+        $formInput = $request->except('image');
 //        validation
-        $this->validate($request,[
-            'name'=>'required',
-            'image'=>'image|mimes:png,jpg,jpeg|max:10000'
+        $this->validate($request, [
+            'name' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 //        image upload
-        $image=$request->image;
-        if($image){
-            $imageName=$image->getClientOriginalName();
-            $image->move('images',$imageName);
-            $formInput['image']=$imageName;
+        $image = $request->image;
+        if ($image) {
+            $imageName = $image->getClientOriginalName();
+            $image->move('images', $imageName);
+            $formInput['image'] = $imageName;
         }
         Products::create($formInput);
         return redirect()->route('products');
@@ -57,12 +57,12 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Products  $products
+     * @param  \App\Products $products
      * @return \Illuminate\Http\Response
      */
     public function show(Products $id)
-    {   
-        $product = Products::findOrFail($id);
+    {
+        $product = Products::find($id);
         return view('single-product', compact('product', $product));
     }
 

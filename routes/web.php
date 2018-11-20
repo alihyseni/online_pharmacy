@@ -15,13 +15,21 @@ Route::get('', function(){ return view('home'); })->name('home');
 
 Route::get('contacts','ContactsController@index')->name('contacts.index');
 
-Route::get('admin/create-product','ProductsController@index')->name('create-product.index');
+
+//---------- ADMIN routes
+
+Route::get('admin/create-product',function(){
+    $brands = DB::table('brands')->get();
+    return view('admin.products-create',compact('brands',$brands));
+})->name('create-product.index');
+
 
 Route::post('admin/create-product','ProductsController@store')->name('create-product.store');
 
-Route::get('products',function(){
-  $products = DB::table('products')->get();
-  return view('products', ['products' => $products]);
-})->name('products');
+//----------------------------------------------------------------
 
-Route::get('product/{id}','ProductsController@show')->name('product.show');
+
+Route::resource('products','ProductsController');
+
+
+

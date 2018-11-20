@@ -23,8 +23,10 @@
                         <p>{{ $product->price }}</p>
                     </div>
                 @endforeach
+                <?php print_r($product);  ?>
+
+
             </div>
         </div>
     </div>
-
 @endsection
