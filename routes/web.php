@@ -12,7 +12,7 @@
 */
 
 
-//---------- ADMIN routes
+//------------------ ADMIN routes
 
 Route::get('admin/create-product',function(){
     $brands = DB::table('brands')->get();

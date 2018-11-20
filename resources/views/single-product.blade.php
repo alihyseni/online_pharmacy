@@ -9,7 +9,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                @foreach($product as $product)
+
+                @foreach($products as $product)
                     <div class="product">
                         <p>{{ $product->name }}</p>
                         <img src="{{ asset('images')}}/{{$product->image}}" alt="{{$product->name}}">
@@ -23,8 +24,6 @@
                         <p>{{ $product->price }}</p>
                     </div>
                 @endforeach
-                <?php print_r($product);  ?>
-
 
             </div>
         </div>

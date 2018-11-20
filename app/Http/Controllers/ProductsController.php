@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Products;
 use Illuminate\Http\Request;
 use App\Brands;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -57,13 +58,14 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Products $products
+     * @param Products $id
      * @return \Illuminate\Http\Response
      */
     public function show(Products $id)
     {
-        $product = Products::find($id);
-        return view('single-product', compact('product', $product));
+//       $products = DB::table('products')->where('id', $id)->first();
+        $products = Products::findOrFail($id);
+        return view('single-product', compact('products', $products));
     }
 
     /**
