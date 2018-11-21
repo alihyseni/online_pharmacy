@@ -22,6 +22,8 @@ Route::get('admin/create-product',function(){
 
 Route::post('admin/create-product','ProductsController@store')->name('create-product.store');
 
+Route::get('admin/edit-product', 'ProductsController@edit')->name('products.edit');
+
 //----------------------------------------------------------------
 
 

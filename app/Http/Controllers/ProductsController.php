@@ -56,28 +56,20 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Products $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Products $id)
     {
-        //$products = DB::table('products')->where('id', $id)->first();
         $products = Products::findOrFail($id);
         return view('single-product', compact('products'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Products $products)
+
+
+    public function edit(Products $id)
     {
-        //
+        $products = Products::find($id);
+        return view('admin.products-edit',compact('products'));
+
     }
 
     /**
