@@ -16,10 +16,10 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Category *</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="category" required>
+                <select class="form-control" id="exampleFormControlSelect1" name="brands_id" required>
                     <option value="" disabled selected hidden>Select Category</option>
                     @foreach($brands as $brand)
-                    <option value="{{$brand->name}}" >{{$brand->name}}</option>
+                    <option value="{{$brand->id}}" >{{$brand->name}}</option>
                     @endforeach
                 </select>
             </div>

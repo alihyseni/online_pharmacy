@@ -16,7 +16,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Products::paginate(4);
+        $products = Products::paginate(12);
         return view('products', compact('products'));
     }
 
@@ -41,18 +41,19 @@ class ProductsController extends Controller
         $formInput = $request->except('image');
 //        validation
         $this->validate($request, [
-            'name' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:10000'
+            'name' => 'required|unique:products',
+            'image' => 'image|mimes:png,jpg,jpeg|max:10000',
+            'brands_id' => 'required'
         ]);
 //        image upload
         $image = $request->image;
         if ($image) {
-            $imageName = $image->getClientOriginalName();
+            $imageName = $request->name .".". $image->getClientOriginalExtension();;
             $image->move('images', $imageName);
             $formInput['image'] = $imageName;
         }
         Products::create($formInput);
-        return redirect()->route('products');
+        return redirect('products');
     }
 
     /**
