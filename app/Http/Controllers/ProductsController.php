@@ -63,9 +63,9 @@ class ProductsController extends Controller
      */
     public function show(Products $id)
     {
-//       $products = DB::table('products')->where('id', $id)->first();
+        //$products = DB::table('products')->where('id', $id)->first();
         $products = Products::findOrFail($id);
-        return view('single-product', compact('products', $products));
+        return view('single-product')->with('products', $products);
     }
 
     /**

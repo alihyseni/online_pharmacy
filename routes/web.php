@@ -29,7 +29,9 @@ Route::get('', function(){ return view('home'); })->name('home');
 
 Route::get('contacts','ContactsController@index')->name('contacts.index');
 
-Route::resource('products','ProductsController');
+Route::get('products','ProductsController@index')->name('products.index');
+
+Route::get('products/{id}', 'ProductsController@show')->name('products.show');
 
 
 
