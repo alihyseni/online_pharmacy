@@ -27,7 +27,7 @@ Route::post('admin/create-product','ProductsController@store')->name('create-pro
 
 Route::get('', function(){ return view('home'); })->name('home');
 
-Route::get('contacts','ContactsController@index')->name('contacts.index');
+Route::get('contacts',function(){ return view('contacts'); })->name('contacts');
 
 Route::get('products','ProductsController@index')->name('products.index');
 

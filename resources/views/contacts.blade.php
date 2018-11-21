@@ -20,11 +20,11 @@ Contact | Pharmacy
     <h4>Contact</h4>
     <div class="row">
         <div class="col-md-4">
-            @foreach($contacts as $contact)
-                <p>{{$contact->address}}</p>
-                <p>{{$contact->phone}}</p>
-                <p>{{$contact->email}}</p>
-            @endforeach
+
+                <p>Lokacioni</p>
+                <p>044123456</p>
+                <p>info@email.com</p>
+
         </div>
         <div class="col-md-8">
             <div class="kontakti-right">

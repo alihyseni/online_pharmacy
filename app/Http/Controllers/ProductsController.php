@@ -16,8 +16,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Products::all()->sortByDesc('id');
-        return view('products', compact('products', $products));
+        $products = Products::paginate(4);
+        return view('products', compact('products'));
     }
 
     /**
@@ -65,7 +65,7 @@ class ProductsController extends Controller
     {
         //$products = DB::table('products')->where('id', $id)->first();
         $products = Products::findOrFail($id);
-        return view('single-product')->with('products', $products);
+        return view('single-product', compact('products'));
     }
 
     /**

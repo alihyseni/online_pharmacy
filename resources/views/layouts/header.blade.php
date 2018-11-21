@@ -18,7 +18,7 @@
                     <a class="nav-link" href="{{ url('partners') }}">Partners</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contacts.index') }}">Contact</a>
+                    <a class="nav-link" href="{{ route('contacts') }}">Contact</a>
                 </li>
             </ul>
         </div>
