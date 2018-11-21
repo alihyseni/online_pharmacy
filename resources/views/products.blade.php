@@ -19,7 +19,7 @@
               </div>
 
               <div class="name">
-                <h4><a href="{{ route('products.show'. $product->id) }}">{{ $product->name }}</a></h4>
+                <h4><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></h4>
               </div>
 
               <div class="descrtipton">
