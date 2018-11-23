@@ -3,61 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Products;
-use Illuminate\Http\Request;
 use App\Brands;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $products = Products::paginate(12);
         return view('products', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $formInput = $request->except('image');
-//        validation
+        // validation
         $this->validate($request, [
             'name' => 'required|unique:products',
             'image' => 'image|mimes:png,jpg,jpeg|max:10000',
             'brands_id' => 'required'
         ]);
-//        image upload
+        // image upload
         $image = $request->image;
         if ($image) {
-            $imageName = $request->name .".". $image->getClientOriginalExtension();;
+            $imageName = $request->name . "." . $image->getClientOriginalExtension();
             $image->move('images', $imageName);
             $formInput['image'] = $imageName;
         }
         Products::create($formInput);
-        return redirect('products');
+        return redirect('/products');
     }
 
 
-    public function show(Products $id)
+    public function show($id)
     {
         $products = Products::findOrFail($id);
         return view('single-product', compact('products'));
@@ -65,10 +50,10 @@ class ProductsController extends Controller
 
 
 
-    public function edit(Products $id)
+    public function edit(Products $product)
     {
-        $products = Products::find($id);
-        return view('admin.products-edit',compact('products'));
+        $brands = Brands::all();
+        return view('admin.products-edit',compact('product', 'brands'));
 
     }
 
@@ -76,20 +61,35 @@ class ProductsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Products  $products
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+
+    public function update(Request $request, $id)
     {
-        //
+        $product = Products::find($id);
+        $formInput = $request->except('image');
+        // validation
+
+        $this->validate($request, [
+            'name' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg|max:10000',
+            'brands_id' => 'required'
+        ]);
+        // image upload
+        $image = $request->image;
+        if ($image) {
+            $imageName = $request->name .".". $image->getClientOriginalExtension();
+            $image->move('images', $imageName);
+            $formInput['image'] = $imageName;
+        }
+
+        $product->update($formInput);
+
+        return redirect('/products');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Products  $products
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Products $products)
     {
         //

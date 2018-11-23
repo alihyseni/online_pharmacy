@@ -10,20 +10,19 @@
         <div class="row">
             <div class="col-md-10">
 
-                @foreach($products as $product)
                     <div class="product">
-                        <p>{{ $product->name }}</p>
-                        <img src="{{ asset('images')}}/{{$product->image}}" alt="{{$product->name}}">
+                        <p>{{ $products->name }}</p>
+                        <img src="{{ asset('images')}}/{{$products->image}}" alt="{{$products->name}}">
                         <h5>Description</h5>
-                        <p>{{ $product->description }}</p>
+                        <p>{{ $products->description }}</p>
                         <h5>Ingredients</h5>
-                        <p>{{ $product->ingredients }}</p>
+                        <p>{{ $products->ingredients }}</p>
                         <h5>Usage</h5>
-                        <p>{{ $product->usage }}</p>
+                        <p>{{ $products->usage }}</p>
                         <h5>Price</h5>
-                        <p>{{ $product->price }}</p>
+                        <p>{{ $products->price }}</p>
                     </div>
-                @endforeach
+                <a href="{{route('products.edit', [$products->id])}}">EDIT</a>
 
             </div>
         </div>

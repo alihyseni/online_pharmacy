@@ -14,15 +14,22 @@
 
 //------------------ ADMIN routes
 
-Route::get('admin/create-product',function(){
-    $brands = DB::table('brands')->get();
-    return view('admin.products-create',compact('brands',$brands));
-})->name('create-product.index');
+// Matches The "/admin/create-product" URL namely adds the "/admin" before created-product
+Route::prefix('admin')->group(function () {
+
+    Route::get('create-product',function(){
+        $brands = DB::table('brands')->get();
+        return view('admin.products-create',compact('brands',$brands));
+    })->name('create-product.index');
 
 
-Route::post('admin/create-product','ProductsController@store')->name('create-product.store');
+    Route::post('create-product','ProductsController@store')->name('create-product.store');
 
-Route::get('admin/edit-product', 'ProductsController@edit')->name('products.edit');
+    Route::get('{product}/edit-product', 'ProductsController@edit')->name('products.edit');
+
+    Route::patch('update-product', 'ProductsController@update')->name('products.update');
+
+});
 
 //----------------------------------------------------------------
 
