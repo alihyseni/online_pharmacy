@@ -57,23 +57,16 @@ class ProductsController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
-    public function update(Request $request, $id)
+
+    public function update(Request $request, Products $products)
     {
-        $product = Products::find($id);
+
         $formInput = $request->except('image');
         // validation
 
         $this->validate($request, [
-            'name' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:10000',
+            'name' => 'required|unique',
             'brands_id' => 'required'
         ]);
         // image upload
@@ -84,7 +77,7 @@ class ProductsController extends Controller
             $formInput['image'] = $imageName;
         }
 
-        $product->update($formInput);
+        $products->update($formInput);
 
         return redirect('/products');
     }
