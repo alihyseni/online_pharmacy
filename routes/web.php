@@ -27,7 +27,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('{product}/edit-product', 'ProductsController@edit')->name('products.edit');
 
-    Route::patch('update-product', 'ProductsController@update')->name('products.update');
+    Route::patch('update-product/{products}', 'ProductsController@update')->name('products.update');
 
 });
 

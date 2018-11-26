@@ -58,26 +58,22 @@ class ProductsController extends Controller
     }
 
 
-
-    public function update(Request $request, Products $products)
+    public function update(Request $request,Products $products)
     {
-
-        $formInput = $request->except('image');
-        // validation
-
+        dd($request->image);
         $this->validate($request, [
-            'name' => 'required|unique',
+            'name' => 'required',
             'brands_id' => 'required'
         ]);
-        // image upload
+        // image update
         $image = $request->image;
         if ($image) {
-            $imageName = $request->name .".". $image->getClientOriginalExtension();
+            $imageName = $request->name . "." . $image->getClientOriginalExtension();
             $image->move('images', $imageName);
-            $formInput['image'] = $imageName;
+            $request->image = $imageName;
         }
 
-        $products->update($formInput);
+        $products->update(request(['brands_id','name','description','ingredients','usage','price','image']));
 
         return redirect('/products');
     }

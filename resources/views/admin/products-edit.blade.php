@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="page-title">Edit Product</h2>
-
-                <form method="POST" action="{{ route('products.update', $product->id) }}">
+                {{--{{ route('products.update', $product->id) }}--}}
+                <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
                     <div class="form-group">
                         @csrf
                         @method('PATCH')
