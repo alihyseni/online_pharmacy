@@ -23,6 +23,7 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
+
         $formInput = $request->except('image');
         // validation
         $this->validate($request, [
@@ -36,15 +37,15 @@ class ProductsController extends Controller
             $imageName = $request->name . "." . $image->getClientOriginalExtension();
             $image->move('images', $imageName);
             $formInput['image'] = $imageName;
+
         }
         Products::create($formInput);
         return redirect('/products');
     }
 
 
-    public function show($id)
+    public function show(Products $products)
     {
-        $products = Products::findOrFail($id);
         return view('single-product', compact('products'));
     }
 
@@ -60,7 +61,8 @@ class ProductsController extends Controller
 
     public function update(Request $request,Products $products)
     {
-        dd($request->image);
+        $formInput =$request->except('image');
+
         $this->validate($request, [
             'name' => 'required',
             'brands_id' => 'required'
@@ -70,10 +72,11 @@ class ProductsController extends Controller
         if ($image) {
             $imageName = $request->name . "." . $image->getClientOriginalExtension();
             $image->move('images', $imageName);
-            $request->image = $imageName;
+            $formInput['image'] = $imageName;
+
         }
 
-        $products->update(request(['brands_id','name','description','ingredients','usage','price','image']));
+        $products->update($formInput);
 
         return redirect('/products');
     }
