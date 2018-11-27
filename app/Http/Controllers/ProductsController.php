@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Products;
 use App\Brands;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductsController extends Controller
 {
@@ -72,6 +73,8 @@ class ProductsController extends Controller
         if ($image) {
             $imageName = $request->name . "." . $image->getClientOriginalExtension();
             $image->move('images', $imageName);
+            $image_path = public_path().'/images/'.$products->image;
+            File::delete($image_path);
             $formInput['image'] = $imageName;
 
         }
