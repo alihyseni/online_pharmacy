@@ -11,13 +11,13 @@
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('create-product.index') }}">About Us</a>
+                    <a class="nav-link" href="#">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('products.index') }}">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('partners') }}">Partners</a>
+                    <a class="nav-link" href="#">Partners</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contacts') }}">Contact</a>

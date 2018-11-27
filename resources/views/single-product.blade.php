@@ -22,7 +22,12 @@
                         <h5>Price</h5>
                         <p>{{ $products->price }}</p>
                     </div>
-                <a href="{{route('products.edit', [$products->id])}}">EDIT</a>
+
+                @if(Auth::user())
+                    <form method="GET" action="{{route('products.edit', [$products->id])}}">
+                        <button type="submit" class="btn btn-success">Edit Product</button>
+                    </form>
+                @endif
 
             </div>
         </div>
