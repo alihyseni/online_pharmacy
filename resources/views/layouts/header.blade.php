@@ -1,11 +1,9 @@
 <nav class="navbar navbar-expand-sm bg-success navbar-dark">
     <div class="container">
         <div class="col-md-2 float-left">
-<<<<<<< HEAD
-            <a href="{{ url('/') }}"> <img src="{{ asset('images')}}/pharmacy-logo.jpg" img="img-fluid" style="width:90px"></a>
-=======
+
             <a href="{{ url('/') }}"> <img src="{{ asset('images/pharmacy-logo.png')}}" img="img-fluid" class="navbar-logo"></a>
->>>>>>> afca62506bc236b337f08acd52664a11f8d40f73
+
         </div>
         <div class="col-md-10">
             <ul class="navbar-nav float-right">
@@ -24,8 +22,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contacts') }}">Contact</a>
                 </li>
-<<<<<<< HEAD
-=======
+
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -56,14 +53,9 @@
                     </li>
                 @endguest
                 <!-- End of authentications link --->
->>>>>>> afca62506bc236b337f08acd52664a11f8d40f73
+
             </ul>
         </div>
     </div>
 </nav>
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> afca62506bc236b337f08acd52664a11f8d40f73
