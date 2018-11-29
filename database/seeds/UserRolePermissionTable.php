@@ -15,13 +15,13 @@ class UserRolePermissionTable extends Seeder
     public function run()
     {
 
-        //First, 'Roles' should have to be asigned to a 'Permission' and then asign user to a 'Role
+        //First, 'Roles' should have to be asigned to a 'Permission' and then assign user to a 'Role'
 
         //Get all the permissions form permission table
         $permission = Permission::all();
-        $admin_role = Role::findByName('admin');
 
         //Assign all permissions to admin Role
+        $admin_role = Role::findByName('admin');
         $admin_role->givePermissionTo($permission);
 
         //Give user 'Getoar' the admin Role
