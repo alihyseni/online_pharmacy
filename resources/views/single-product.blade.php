@@ -12,7 +12,7 @@
 
                     <div class="product">
                         <p>{{ $products->name }}</p>
-                        <img src="{{ asset('images')}}/{{$products->image}}" alt="{{$products->name}}">
+                        <img class="img-fluid" src="{{ asset('images')}}/{{$products->image}}" alt="{{$products->name}}">
                         <h5>Description</h5>
                         <p>{{ $products->description }}</p>
                         <h5>Ingredients</h5>
