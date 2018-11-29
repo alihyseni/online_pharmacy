@@ -15,8 +15,6 @@ class UserRolePermissionTable extends Seeder
     public function run()
     {
 
-        //First, 'Roles' should have to be asigned to a 'Permission' and then assign user to a 'Role'
-
         //Get all the permissions form permission table
         $permission = Permission::all();
 
