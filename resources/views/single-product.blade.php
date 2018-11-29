@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Name | Pharmacy
+    {{$products->name}} | Pharmacy
 @endsection
 
 @section('content')
