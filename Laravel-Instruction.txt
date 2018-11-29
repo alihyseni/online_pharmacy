@@ -43,6 +43,8 @@ php artisan migrate:refresh --seed
 --------------------------------------------------
 
 
+https://www.youtube.com/watch?v=zIgYJlu03bI                            .........spatie/laravel user roles permissions
+
 https://programmingpot.com/laravel/page/2/								.........laravel tutorials
 	
 https://www.5balloons.info/tutorial-simple-crud-operations-in-laravel-5-5/  				.........laravel crud form   

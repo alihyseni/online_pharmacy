@@ -24,7 +24,13 @@ Route::prefix('admin')->group(function () {
 
 //----------------------------------------------------------------
 
-Route::get('', function(){ return view('home'); })->name('home');
+Route::get('', function(){
+
+    $permission = \Spatie\Permission\Models\Permission::all();
+
+    return $permission;
+
+    return view('home'); })->name('home');
 Route::get('contacts',function(){ return view('contacts'); })->name('contacts');
 Route::get('products','ProductsController@index')->name('products.index');
 Route::get('products/{products}', 'ProductsController@show')->name('products.show');
