@@ -23,11 +23,11 @@
                         <p>{{ $products->price }}</p>
                     </div>
 
-                @if(Auth::user())
+                @can('edit product')
                     <form method="GET" action="{{route('products.edit', [$products->id])}}">
                         <button type="submit" class="btn btn-success">Edit Product</button>
                     </form>
-                @endif
+                @endcan
 
             </div>
         </div>

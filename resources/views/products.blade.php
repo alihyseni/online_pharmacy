@@ -10,11 +10,11 @@
       <div class="row">
           <h3>Products</h3>
       </div>
-      @if(Auth::user())
+      @can('create product')
           <form method="GET" action="{{route('create-product.store')}}">
             <button type="submit" class="btn btn-success">Add New Product</button>
           </form>
-      @endif
+      @endcan
       <div class="row">
           @foreach($products as $product)
             <div class="col-md-3">
