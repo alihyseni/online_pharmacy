@@ -150,7 +150,7 @@ class ProductsTableSeeder extends Seeder
             'ingredients'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'usage'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'price'=> '1.10',
-            'image'=>'vitamin-e.jpg',
+            'image'=>'vitamin-e.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
 
@@ -163,7 +163,7 @@ class ProductsTableSeeder extends Seeder
             'ingredients'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'usage'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'price'=> '7.10',
-            'image'=>'b-complex.jpg',
+            'image'=>'b-complex.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
 
@@ -176,7 +176,7 @@ class ProductsTableSeeder extends Seeder
             'ingredients'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'usage'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'price'=> '10.50',
-            'image'=>'creatine.jpg',
+            'image'=>'creatine.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
 

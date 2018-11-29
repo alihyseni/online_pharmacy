@@ -1,0 +1,52 @@
+If "specified key was too long" error occurs when we try to migrate
+here is the link https://www.youtube.com/watch?v=2z9F8Cf7aMI    got to min 4:20
+
+
+go to app/Providers/AppServiceProvider.php
+add this code top
+use Illuminate\Support\Facades\Schema;
+
+and this one to function boot()
+ schema::defaultStringLength(191);
+
+------------------------------------------------
+
+
+when you create relationship on laravel make sure that tha migration you create the parent is created first , beacuse the forign key cannot create
+
+
+------------------------------------------------
+when you download/clone laravel project from github to local
+
+https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/
+
+
+--------------------------------------------------
+Deleting images from public folder
+
+	use Illuminate\Support\Facades\File;
+
+	$image_path = public_path().'/images/'."example.jpg";
+        File::delete($image_path);
+
+--------------------------------------------------
+logout from git
+
+git config --global --unset-all
+
+--------------------------------------------------
+
+Refreshing migrate and seeding database
+
+php artisan migrate:refresh --seed
+
+--------------------------------------------------
+
+
+https://programmingpot.com/laravel/page/2/								.........laravel tutorials
+	
+https://www.5balloons.info/tutorial-simple-crud-operations-in-laravel-5-5/  				.........laravel crud form   
+
+https://www.cloudways.com/blog/laravel-tutorials-for-beginners/						.........laravel tutorials
+
+https://itsolutionstuff.com/post/laravel-one-to-many-eloquent-relationship-tutorialexample.html         .........laravel one to many
