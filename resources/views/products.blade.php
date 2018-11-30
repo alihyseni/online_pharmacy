@@ -16,6 +16,7 @@
           </form>
       @endcan
       <div class="row">
+
           @foreach($products as $product)
             <div class="col-md-3">
 
@@ -35,15 +36,24 @@
                 <h5>Price</h5>
                 <p>{{$product->price}}</p>
               </div>
-
-
             </div>
           @endforeach
+      </div>
           <div class="row">
-              <div class="col-md-12 align-content-center">
-                {{ $products->links() }}
+              <div class="col-md-12 text-center">
+                  {{ $products->links() }}
               </div>
           </div>
       </div>
   </div>
 @endsection
+
+@section('scripts')
+    <script>
+        // $(document).ready(function(){
+        //     $('.block-27 .page-item,.block-27 .page-link').removeClass();
+        // });
+
+    </script>
+@endsection
+

@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
             'ingredients'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'usage'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'price'=> '0.60',
-            'image'=>'Paracetamol.jpg',
+            'image'=>'paracetamol.jpg',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
 
@@ -33,7 +33,7 @@ class ProductsTableSeeder extends Seeder
             'ingredients'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'usage'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'price'=> '1.20',
-            'image'=>'vitamin-b6.jpg',
+            'image'=>'vitamin-b12.jpg',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
 
@@ -46,7 +46,7 @@ class ProductsTableSeeder extends Seeder
             'ingredients'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'usage'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'price'=> '1.20',
-            'image'=>'Vitamin-B6.jpg',
+            'image'=>'vitamin-b6.jpg',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
 
@@ -111,7 +111,7 @@ class ProductsTableSeeder extends Seeder
             'ingredients'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'usage'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
             'price'=> '5.10',
-            'image'=>'Aspirin.png',
+            'image'=>'aspirin.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
 

@@ -33,5 +33,11 @@ Route::get('home', function(){ return view('home'); })->name('home');
 Route::get('contacts',function(){ return view('contacts'); })->name('contacts');
 Route::get('products','ProductsController@index')->name('products.index');
 Route::get('products/{products}', 'ProductsController@show')->name('products.show');
+Route::get('about-us', function(){
+        return view('about');
+    })->name('about');
+Route::get('cart',function(){
+        return view('cart');
+    })->name('cart');
 
 Auth::routes();
