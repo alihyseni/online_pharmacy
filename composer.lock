@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bcb14a9bbfcbd08bf4811b535d78400",
+    "content-hash": "441c38bcfe29cb968a003ec926293bde",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1335,16 +1335,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "2.27.0",
+            "version": "2.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "8443660fc02a13e9c6b73baa369dc1999afe9025"
+                "reference": "e4c3801008c2b4d1002b6b8c624a6a216d32f4f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/8443660fc02a13e9c6b73baa369dc1999afe9025",
-                "reference": "8443660fc02a13e9c6b73baa369dc1999afe9025",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/e4c3801008c2b4d1002b6b8c624a6a216d32f4f8",
+                "reference": "e4c3801008c2b4d1002b6b8c624a6a216d32f4f8",
                 "shasum": ""
             },
             "require": {
@@ -1396,7 +1396,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2018-11-21T16:41:38+00:00"
+            "time": "2018-11-30T07:29:54+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
