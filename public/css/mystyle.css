@@ -68,6 +68,11 @@ h1,h2,h3,h4,h5,h6,p,a:hover{
     text-align:center;
 }
 
+.products-item .price p{
+    color:#de1904;
+    font-weight: bold;
+}
+
 
 /*------------ Footer ------------*/
 footer {
