@@ -7,59 +7,7 @@
 @section('content')
 
     <style>
-        .products-item{
-            margin-bottom:40px;
-        }
 
-        .products-item .name h4{
-            font-size: 1.3em;
-            color: #fc636b;
-            text-decoration: none;
-            font-weight: 600;
-            text-align:center;
-        }
-        .products-item .name h4:hover{
-            text-decoration: none!important;
-        }
-
-        .products-item {
-            position: relative;
-            box-shadow: 0px 0px 15px 0px #D6D6D6;
-            padding-bottom: 20px;
-            padding-left:15px;
-            padding-right:15px;
-
-        }
-        .item_add_cart form{
-            text-align:center;
-            margin:0 auto;
-        }
-        .item_add_cart input.button {
-            font-size: 13px;
-            color: #fff;
-            background: #2fdab8;
-            text-decoration: none;
-            position: relative;
-            border: none;
-            border-radius: 0;
-            width: 80%;
-            text-transform: uppercase;
-            padding: .5em 0;
-            outline: none;
-            letter-spacing: 1px;
-            font-weight: 600;
-
-        }
-        .image img{
-            padding: 22px 8px 5px;
-            object-fit: cover;
-            width: 100%;
-            height: 188px;
-        }
-
-        .products-item .button:hover{
-            cursor:pointer;
-        }
     </style>
 
 
@@ -78,7 +26,9 @@
             <div class="col-md-3">
                 <div class="products-item">
                   <div class="image">
-                    <img class="img-fluid" src="{{asset('images')}}/{{$product->image}}" alt="{{$product->name}}">
+                      <a href="{{route('products.show',$product->id)}}">
+                        <img class="img-fluid" src="{{asset('images')}}/{{$product->image}}" alt="{{$product->name}}">
+                      </a>
                   </div>
 
                   <div class="name">

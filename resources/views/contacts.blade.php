@@ -65,7 +65,7 @@ Contact | Pharmacy
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+                                        <textarea name="message" id="message" cols="30" rows="6" class="form-control" placeholder="Say something about us"></textarea>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -79,7 +79,7 @@ Contact | Pharmacy
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=prishtine+(Pharmacy)&amp;ie=UTF8&amp;t=&amp;z=9&amp;iwloc=B&amp;output=embed" frameborder="0"  marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google Maps iframe generator</a></iframe>
+                    <iframe width="100%" height="620" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=prishtine+(Pharmacy)&amp;ie=UTF8&amp;t=&amp;z=9&amp;iwloc=B&amp;output=embed" frameborder="0"  marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google Maps iframe generator</a></iframe>
                 </div>
             </div>
         </div>
