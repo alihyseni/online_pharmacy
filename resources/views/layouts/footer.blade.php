@@ -1,20 +1,3 @@
-<style>
-footer {
-    height:50px;
-    padding-top:15px;
-}
-
-footer .text-center{
-    color:white;
-}
-footer .text-center a{
-    color:white;
-    text-decoration:none;
-}
-footer {
-    background-color:#88C8BC!important;
-}
-</style>
 <footer>
 
     <div class="gototop js-top">
