@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 container align-center">
-                    <p class="text-center">© Copyrights 2018 - All Rights Reserved - Designed and Development by: <a href="https://www.fb.com/getoar.llalloshi" target="_blank">Getoar</a></p>
+                    <p class="text-center">© Copyrights 2018 - All Rights Reserved - Designed and Development by: <a href="https://www.facebookg.com/getoar.llalloshi" target="_blank">Getoar</a></p>
                 </div>
             </div>
         </div>

@@ -1,7 +1,4 @@
-body{
-    margin:0;
-    padding:0;
-}
+
 /*--------- NAVBAR ----------*/
 
 .navbar-logo{
@@ -12,6 +9,9 @@ nav.colorlib-nav{
     margin-bottom:20px;
 }
 
+h1,h2,h3,h4,h5,h6,p,a:hover{
+    text-decoration:none;
+}
 /*--------- Products ----------*/
 .products-item{
     margin-bottom:40px;
@@ -71,8 +71,8 @@ nav.colorlib-nav{
 
 /*------------ Footer ------------*/
 footer {
-    height:50px;
-    padding-top:15px;
+    height:60px;
+    padding-top:20px;
     margin-top:20px;
 }
 
