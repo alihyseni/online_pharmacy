@@ -20,9 +20,12 @@ class CartsController extends Controller
 
         if (Auth::check()) {
             $auth_id = Auth::id();
-            $cart_products = Carts::where('user_id',$auth_id)->get();
+            $cart_products = DB::table('carts')->join('products','id','=','products.auth_id')
+                ->where('user_id',$auth_id)->get();
             dd($cart_products);
             return view('cart',compact('cart_product',$cart_products));
+
+            //https://laravel.com/docs/4.2/queries
         }
 
     }
