@@ -51,7 +51,8 @@
                                 <input type="hidden" name="business" value=" ">
                                 <input type="hidden" name="item_name" value="Formal Blue Shirt">
                                 <input type="hidden" name="amount" value="30.99">
-                                <input type="submit" name="submit" value="Add to cart" class="button">
+                                <button type="submit" name="submit" value="Add to cart" class="btn btn-primary btn-addtocart">
+                                    <i class="icon-shopping-cart"></i> Add to Cart</button>
                             </fieldset>
                         </form>
                     </div>

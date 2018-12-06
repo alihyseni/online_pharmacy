@@ -46,8 +46,18 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 text-center">
-                                <p class="addtocart"><a href="{{route('cart')}}" class="btn btn-primary btn-addtocart"><i
-                                                class="icon-shopping-cart"></i> Add to Cart</a></p>
+                                <div class="item_add_cart">
+                                    <form action="{{route('cart')}}" method="get">
+                                        <fieldset>
+                                            <input type="hidden" name="cmd" value="_cart">
+                                            <input type="hidden" name="add" value="1">
+                                            <input type="hidden" name="business" value=" ">
+                                            <input type="hidden" name="item_name" value="Formal Blue Shirt">
+                                            <input type="hidden" name="amount" value="30.99">
+                                            <button type="submit" name="submit" value="Add to cart" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</button>
+                                        </fieldset>
+                                    </form>
+                                </div>
                                 @can('edit product')
                                     <form method="GET" action="{{route('products.edit', [$products->id])}}">
                                         <button type="submit" class="btn btn-success">Edit Product</button>
@@ -105,4 +115,43 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function(){
+
+            var quantitiy=0;
+            $('.quantity-right-plus').click(function(e){
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                $('#quantity').val(quantity + 1);
+
+
+                // Increment
+
+            });
+
+            $('.quantity-left-minus').click(function(e){
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                // Increment
+                if(quantity>1){
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+
+        });
+    </script>
 @endsection

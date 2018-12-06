@@ -42,13 +42,14 @@ php artisan migrate:refresh --seed
 
 --------------------------------------------------
 
+https://packalyst.com/packages/package/darryldecode/cart                                   .........laravel shopping cart
 
-https://www.youtube.com/watch?v=zIgYJlu03bI                            .........spatie/laravel user roles permissions
+https://www.youtube.com/watch?v=zIgYJlu03bI                                                .........spatie/laravel user roles permissions
 
-https://programmingpot.com/laravel/page/2/								.........laravel tutorials
+https://programmingpot.com/laravel/page/2/								                   .........laravel tutorials
 	
-https://www.5balloons.info/tutorial-simple-crud-operations-in-laravel-5-5/  				.........laravel crud form   
+https://www.5balloons.info/tutorial-simple-crud-operations-in-laravel-5-5/  			   .........laravel crud form
 
-https://www.cloudways.com/blog/laravel-tutorials-for-beginners/						.........laravel tutorials
+https://www.cloudways.com/blog/laravel-tutorials-for-beginners/						       .........laravel tutorials
 
 https://itsolutionstuff.com/post/laravel-one-to-many-eloquent-relationship-tutorialexample.html         .........laravel one to many
