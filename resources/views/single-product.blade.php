@@ -146,9 +146,10 @@
                 var quantity = parseInt($('#quantity').val());
 
                 // If is not undefined
+                if (quantity < 10) {
 
-                $('#quantity').val(quantity + 1);
-
+                    $('#quantity').val(quantity + 1);
+                }
 
                 // Increment
 
