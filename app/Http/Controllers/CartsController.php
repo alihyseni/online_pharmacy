@@ -20,8 +20,8 @@ class CartsController extends Controller
 
         if (Auth::check()) {
             $auth_id = Auth::id();
-            $cart_products = DB::table('carts')->join('products','id','=','products.auth_id')
-                ->where('user_id',$auth_id)->get();
+            $cart_products = DB::table('carts')->join('products','cars.user_id','=','products.id')
+                ->get();
             dd($cart_products);
             return view('cart',compact('cart_product',$cart_products));
 
