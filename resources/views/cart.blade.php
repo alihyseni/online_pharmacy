@@ -44,35 +44,36 @@
                             <span>Remove</span>
                         </div>
                     </div>
-                    <div class="product-cart d-flex">
-                        <div class="one-forth">
-                            <div class="product-img" style="background-image: url(images/zinc.jpg);">
+
+                        <div class="product-cart d-flex">
+                            <div class="one-forth">
+                                <div class="product-img" style="background-image: url(images/zinc.jpg);">
+                                </div>
+                                <div class="display-tc">
+                                    <h3>Product Name</h3>
+                                </div>
                             </div>
-                            <div class="display-tc">
-                                <h3>Product Name</h3>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price">$6.00</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <span class="price">$6.00</span>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
+                                </div>
                             </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price">$12.00</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <span class="price">$12.00</span>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <a href="#" class="closed"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <a href="#" class="closed"></a>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="product-cart d-flex">
                         <div class="one-forth">
                             <div class="product-img" style="background-image: url(images/vitamin-b12.jpg);">
@@ -142,11 +143,8 @@
                             <div class="col-sm-8">
                                 <form action="#">
                                     <div class="row form-group">
-                                        <div class="col-sm-9">
-                                            <input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
-                                        </div>
                                         <div class="col-sm-3">
-                                            <input type="submit" value="Apply Coupon" class="btn btn-primary">
+                                            <input type="submit" value="Checkout" class="btn btn-primary btn-addtocart">
                                         </div>
                                     </div>
                                 </form>

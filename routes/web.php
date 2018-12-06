@@ -26,7 +26,7 @@ Route::prefix('admin')->group(function () {
     Route::patch('update-product/{products}', 'ProductsController@update')->name('products.update');
 });
 
-//----------------------------------------------------------------
+//----------------------------Guest Routes------------------------------------
 
 Route::get('', function(){ return view('home'); })->name('home');
 Route::get('home', function(){ return view('home'); })->name('home');
@@ -36,8 +36,9 @@ Route::get('products/{products}', 'ProductsController@show')->name('products.sho
 Route::get('about-us', function(){
         return view('about');
     })->name('about');
-Route::get('cart',function(){
-        return view('cart');
-    })->name('cart');
 
 Auth::routes();
+
+
+//-----------------------------User Routes----------------------------
+Route::resource('cart','CartsController')->middleware('auth');

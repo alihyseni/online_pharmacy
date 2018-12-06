@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Carts;
+use Illuminate\Support\Facades\DB;
 
-class CartController extends Controller
+
+class CartsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,14 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+
+        if (Auth::check()) {
+            $auth_id = Auth::id();
+            $cart_products = Carts::where('user_id',$auth_id)->get();
+            dd($cart_products);
+            return view('cart',compact('cart_product',$cart_products));
+        }
+
     }
 
     /**
@@ -34,7 +45,24 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Auth::check()) {
+            $user_id = Auth::id();
+
+            $this->validate($request, [
+                'quantity' => 'required|numeric|min:1|max:10',
+                'product_id' => 'required|exists:products,id'
+            ]);
+            $product_id = $request->product_id;
+            $quantity = $request->quantity;
+
+//            if(Carts::where('user_id',$user_id)->andWhere('product_id',$product_id)){
+//                Carts::update();
+//            }
+
+            Carts::create(['user_id'=> $user_id,'product_id'=> $product_id,'quantity' => $quantity]);
+
+        }
+        return redirect('/cart');
     }
 
     /**
