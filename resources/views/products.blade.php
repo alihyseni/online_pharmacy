@@ -42,7 +42,7 @@
 
                         <div class="price">
                             <h5>Price</h5>
-                            <p>$ {{$product->price}}</p>
+                            <p>€ {{$product->price}}</p>
                         </div>
                         <div class="item_add_cart">
                             <form action="{{route('cart.store')}}" method="POST">

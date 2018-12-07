@@ -99,3 +99,19 @@ footer {
     background-color:#2fdab8!important;
 }
 /*----------- End Footer -----------*/
+
+/*----------- CART --------------*/
+.cart-remove-button{
+    border: none;
+    background: none;
+    width: 22px;
+    cursor: pointer;
+    height: 22px;
+    padding: 0;
+}
+
+.product-entry img{
+    object-fit:contain;
+    width:100%;
+    height:253px;
+}

@@ -45,178 +45,98 @@
                         </div>
                     </div>
 
+                    @foreach($cart_products as $cart_product)
                         <div class="product-cart d-flex">
                             <div class="one-forth">
-                                <div class="product-img" style="background-image: url(images/zinc.jpg);">
+                                <div class="product-img" style="background-image: url('{{asset('images')}}/{{$cart_product->image}}');">
                                 </div>
                                 <div class="display-tc">
-                                    <h3>Product Name</h3>
+                                    <h3>{{$cart_product->name}}</h3>
                                 </div>
                             </div>
                             <div class="one-eight text-center">
                                 <div class="display-tc">
-                                    <span class="price">$6.00</span>
+                                    <span class="price">€{{$cart_product->price}}</span>
                                 </div>
                             </div>
                             <div class="one-eight text-center">
                                 <div class="display-tc">
-                                    <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
+                                    <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="{{$cart_product->quantity}}" min="1" max="10">
                                 </div>
                             </div>
                             <div class="one-eight text-center">
                                 <div class="display-tc">
-                                    <span class="price">$12.00</span>
+                                    <span class="price">€ 5.00</span>
                                 </div>
                             </div>
                             <div class="one-eight text-center">
                                 <div class="display-tc">
-                                    <a href="#" class="closed"></a>
+                                    <form action="{{ route('cart.destroy', $cart_product->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="cart-remove-button" type="submit"><p class="closed"></p></button>
+                                    </form>
                                 </div>
                             </div>
+                        </div>
+                    @endforeach
 
-                    <div class="product-cart d-flex">
-                        <div class="one-forth">
-                            <div class="product-img" style="background-image: url(images/vitamin-b12.jpg);">
-                            </div>
-                            <div class="display-tc">
-                                <h3>Product Name</h3>
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <span class="price">$3.20</span>
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <form action="#">
-                                    <input type="text" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <span class="price">$1.20</span>
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <a href="#" class="closed"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-cart d-flex">
-                        <div class="one-forth">
-                            <div class="product-img" style="background-image: url(images/vitamin-b6.jpg);">
-                            </div>
-                            <div class="display-tc">
-                                <h3>Product Name</h3>
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <span class="price">$1.20</span>
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <span class="price">$1.20</span>
-                            </div>
-                        </div>
-                        <div class="one-eight text-center">
-                            <div class="display-tc">
-                                <a href="#" class="closed"></a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="row row-pb-lg">
-                <div class="col-md-12">
-                    <div class="total-wrap">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <form action="#">
-                                    <div class="row form-group">
-                                        <div class="col-sm-3">
-                                            <input type="submit" value="Checkout" class="btn btn-primary btn-addtocart">
+                <div class="row row-pb-lg">
+                    <div class="col-md-12">
+                        <div class="total-wrap">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <form action="#">
+                                        <div class="row form-group">
+                                            <div class="col-sm-9">
+                                                <p>Shipping free for orders over €15.</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="submit" value="Checkout" class="btn btn-primary">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-sm-4 text-center">
+                                    <div class="total">
+                                        <div class="sub">
+                                            <p><span>Subtotal:</span> <span>€20.00</span></p>
+                                            <p><span>Delivery:</span> <span>€0.00</span></p>
+                                        </div>
+                                        <div class="grand-total">
+                                            <p><span><strong>Total:</strong></span> <span>€20.00</span></p>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="col-sm-4 text-center">
-                                <div class="total">
-                                    <div class="sub">
-                                        <p><span>Subtotal:</span> <span>$17.00</span></p>
-                                        <p><span>Delivery:</span> <span>$0.00</span></p>
-                                        <p><span>Discount:</span> <span>$2.00</span></p>
-                                    </div>
-                                    <div class="grand-total">
-                                        <p><span><strong>Total:</strong></span> <span>$15.00</span></p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
             <div class="row">
                 <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-                    <h2>Related Products</h2>
+                    <h2>Might also like</h2>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-md-3 col-lg-3 mb-4 text-center">
-                    <div class="product-entry border">
-                        <a href="#" class="prod-img">
-                            <img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                        </a>
-                        <div class="desc">
-                            <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                            <span class="price">$139.00</span>
+                @foreach($random_products as $random_product)
+                    <div class="col-md-3 col-lg-3 mb-4 text-center">
+                        <div class="product-entry border">
+                            <a href="{{ route('products.show', $random_product->id) }}" class="prod-img" style="width:253px;">
+                                <img src="{{asset('images')}}/{{$random_product->image}}" class="img-fluid" alt="{{$random_product->name}}">
+                            </a>
+                            <div class="desc">
+                                <h2><a href="{{ route('products.show', $random_product->id) }}">{{$random_product->name}}</a></h2>
+                                <span class="price">€{{$random_product->price}}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-lg-3 mb-4 text-center">
-                    <div class="product-entry border">
-                        <a href="#" class="prod-img">
-                            <img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                        </a>
-                        <div class="desc">
-                            <h2><a href="#">Women's Minam Meaghan</a></h2>
-                            <span class="price">$139.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 mb-4 text-center">
-                    <div class="product-entry border">
-                        <a href="#" class="prod-img">
-                            <img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                        </a>
-                        <div class="desc">
-                            <h2><a href="#">Men's Taja Commissioner</a></h2>
-                            <span class="price">$139.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 mb-4 text-center">
-                    <div class="product-entry border">
-                        <a href="#" class="prod-img">
-                            <img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                        </a>
-                        <div class="desc">
-                            <h2><a href="#">Russ Men's Sneakers</a></h2>
-                            <span class="price">$139.00</span>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
         </div>
     </div>
 @endsection

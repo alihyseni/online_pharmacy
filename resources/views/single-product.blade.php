@@ -31,7 +31,7 @@
                         <p>{{$products->description}}</p>
 
                         <p class="price">Price
-                            <span>$ {{$products->price}}</span>
+                            <span>€ {{$products->price}}</span>
                         </p>
 
                         <div class="item_add_cart">

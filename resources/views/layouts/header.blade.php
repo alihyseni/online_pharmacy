@@ -26,7 +26,7 @@
                             <li><a href="{{ route('products.index') }}">Products</a></li>
                             <li><a href="#">Brands</a></li>
                             <li><a href="{{ route('contacts') }}">Contact</a></li>
-                            <li class="cart"><a href="{{ route('cart.index') }}"><i class="icon-shopping-cart"></i> Cart [<span>0</span>]</a></li>
+                            <li class="cart"><a href="{{ route('cart.index') }}"><i class="icon-shopping-cart"></i> Cart [<span><?= \App\Carts::cartCount();?></span>]</a></li>
                             <!-- Authentication Links -->
                             @guest
                                 <li>
