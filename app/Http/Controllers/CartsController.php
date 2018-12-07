@@ -65,7 +65,7 @@ class CartsController extends Controller
             $product_id = $request->product_id;
             $quantity = $request->quantity;
             //Check if product exists in Carts table
-            if(Carts::where(['product_id' => '213', 'user_id' => $user_id])){
+            if(Carts::where(['product_id' => $product_id, 'user_id' => $user_id])->first()){
                 return $this->update($product_id, $quantity);
             }
             else{
