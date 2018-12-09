@@ -25,6 +25,7 @@
                     </div>
                 </div>
             </div>
+            @include('layouts.error')
             <div class="row row-pb-lg">
                 <div class="col-md-12">
                     <div class="product-name d-flex">
@@ -61,12 +62,31 @@
                             </div>
                             <div class="one-eight text-center">
                                 <div class="display-tc">
-                                    <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="{{$cart_product->quantity}}" min="1" max="10">
+                                    {{--<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="{{$cart_product->quantity}}" min="1" max="10">--}}
+
+                                    <div class="input-group mb-4">
+                                        <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn" data-type="minus"
+                                                        data-field="">
+                                                    <i class="icon-minus2"></i>
+                                                </button>
+                                            </span>
+                                        <input type="text" id="quantity" name="quantity"
+                                                   class="form-control input-number" value="{{$cart_product->quantity}}"
+                                               min="1" max="10">
+                                        <span class="input-group-btn ml-1">
+                                                <button type="button" class="quantity-right-plus btn" data-type="plus"
+                                                        data-field="">
+                                                    <i class="icon-plus2"></i>
+                                                </button>
+                                            </span>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="one-eight text-center">
                                 <div class="display-tc">
-                                    <span class="price">€ 5.00</span>
+                                    <span class="price">€{{\App\Carts::totalOfItem($cart_product->id)}}</span>
                                 </div>
                             </div>
                             <div class="one-eight text-center">
@@ -102,11 +122,11 @@
                                 <div class="col-sm-4 text-center">
                                     <div class="total">
                                         <div class="sub">
-                                            <p><span>Subtotal:</span> <span>€20.00</span></p>
-                                            <p><span>Delivery:</span> <span>€0.00</span></p>
+                                            <p><span>Subtotal:</span> <span>€{{\App\Carts::cartSubTotal()}}</span></p>
+                                            <p><span>Delivery:</span> <span>€{{\App\Carts::cartDeliveryPrice()}}</span></p>
                                         </div>
                                         <div class="grand-total">
-                                            <p><span><strong>Total:</strong></span> <span>€20.00</span></p>
+                                            <p><span><strong>Total:</strong></span> <span>€{{\App\Carts::cartTotal()}}</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -139,4 +159,44 @@
 
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+                if (quantity < 10) {
+
+                    $('#quantity').val(quantity + 1);
+                }
+
+                // Increment
+
+            });
+
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                // Increment
+                if (quantity > 1) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+
+        });
+    </script>
 @endsection
