@@ -100,7 +100,6 @@ class CartsController extends Controller
 
     public function update($id,$quantity)
     {
-
         $carts = Carts::where('product_id', $id)->get();
         $quantity = $carts->quantity + $quantity;
         $carts->update(array('quantity' => $quantity));
