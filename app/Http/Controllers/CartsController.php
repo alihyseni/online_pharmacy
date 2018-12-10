@@ -27,7 +27,7 @@ class CartsController extends Controller
 
             $cart_products = DB::table('carts')
                 ->where('carts.user_id',$auth_id)
-                ->join('products','products.id','=','carts.user_id')
+                ->join('products','products.id','=','carts.product_id')
                 ->select('carts.id','carts.user_id', 'carts.product_id','carts.quantity','.products.created_at','products.brands_id','products.name','products.price','products.image')
                 ->get();
             return view('cart',compact('cart_products',$cart_products))->with('random_products',$random_products);
@@ -64,6 +64,7 @@ class CartsController extends Controller
             ]);
             $product_id = $request->product_id;
             $quantity = $request->quantity;
+            //dd(Carts::where([['product_id','=', $product_id], ['user_id', '=', $user_id]])->get(),$user_id,$product_id);
             //Check if product exists in Carts table
             if(Carts::where(['product_id' => $product_id, 'user_id' => $user_id])->first()){
                 return $this->update($product_id, $quantity);
@@ -100,7 +101,9 @@ class CartsController extends Controller
 
     public function update($id,$quantity)
     {
-        $carts = Carts::where('product_id', $id)->get();
+
+
+        $carts = Carts::where('product_id', $id)->first();
         $quantity = $carts->quantity + $quantity;
         $carts->update(array('quantity' => $quantity));
         return redirect('/cart');

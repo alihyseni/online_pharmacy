@@ -5,7 +5,10 @@
 @endsection
 
 @section('content')
-
+<style> #page{
+        height:auto !important;
+    }
+</style>
     <div class="colorlib-product">
         <div class="container">
             <div class="row row-pb-lg product-detail-wrap">
@@ -132,7 +135,7 @@
     </div>
 
 @endsection
-g
+
 @section('scripts')
     <script>
         $(document).ready(function () {

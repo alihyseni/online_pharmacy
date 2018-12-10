@@ -1,5 +1,4 @@
-
-    <nav class="colorlib-nav" role="navigation">
+ <nav class="colorlib-nav" role="navigation">
         <div class="top-menu">
             <div class="container">
                 <div class="row">

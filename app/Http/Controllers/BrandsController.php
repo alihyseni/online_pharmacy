@@ -14,7 +14,7 @@ class BrandsController extends Controller
      */
     public function index()
     {
-       //
+       //g
     }
 
     /**
