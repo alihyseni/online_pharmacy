@@ -101,7 +101,7 @@
                         </div>
                     @empty
                         <h3>No Product</h3>
-                            @endforelse
+                    @endforelse
                 </div>
             </div>
                 <div class="row row-pb-lg">
