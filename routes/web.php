@@ -36,6 +36,7 @@ Route::get('products/{products}', 'ProductsController@show')->name('products.sho
 Route::get('about-us', function(){
         return view('about');
     })->name('about');
+Route::get('brands','BrandsController@index')->name('brands.index');
 
 Auth::routes();
 

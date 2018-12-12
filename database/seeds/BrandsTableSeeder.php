@@ -14,30 +14,35 @@ class BrandsTableSeeder extends Seeder
     {
         \App\Brands::insert([
             'name' => 'Bayer',
+            'image'=> 'bayer.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
         ]);
 
         \App\Brands::insert([
             'name' => 'Swanson',
+            'image'=> 'swanson.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
         ]);
 
         \App\Brands::insert([
             'name' => 'Alkaloid',
+            'image'=> 'alkaloid.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
         ]);
 
         \App\Brands::insert([
             'name' => 'Johnson&Johnson',
+            'image'=> 'johnson-johnson.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
         ]);
 
         \App\Brands::insert([
             'name' => 'Trepharm',
+            'image'=> 'trepharm.png',
             'created_at'=> Carbon\Carbon::now(),
             'updated_at' => Carbon\Carbon::now()
         ]);

@@ -14,7 +14,9 @@ class BrandsController extends Controller
      */
     public function index()
     {
+        $brands = Brands::all();
 
+        return view('brands',compact('brands',$brands));
     }
 
     /**
@@ -46,7 +48,7 @@ class BrandsController extends Controller
      */
     public function show(Brands $brands)
     {
-        //
+       //
     }
 
     /**
