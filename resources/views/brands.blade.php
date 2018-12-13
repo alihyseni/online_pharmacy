@@ -22,7 +22,9 @@
             <div class="row publikimiPage animated fadeInUp">
                 @foreach($brands as $brand)
                 <div class="col-lg-4 col-md-6 col-sm-6 partneretItem" >
-                    <img class="img-fluid" src="{{asset('images')}}/{{$brand->image}}" style="max-width: 320px; max-height:150px;">
+                    <a href="{{route('products.index')}}">
+                        <img class="img-fluid" src="{{asset('images')}}/{{$brand->image}}" style="max-width: 320px; max-height:150px;">
+                    </a>
                 </div>
                 @endforeach
             </div>

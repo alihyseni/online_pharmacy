@@ -6,19 +6,29 @@ use App\Products;
 use App\Brands;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use function MongoDB\BSON\toJSON;
 
 class ProductsController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Products::paginate(12);
-        return view('products', compact('products'));
+        if(!$request->input('brand')){
+            $brands = Brands::all('id','name');
+            $products = Products::orderBy('id','desc')->paginate(12);
+            return view('products', compact('products'))->with('brands',$brands);
+        }else{
+            $brands = Brands::all('id','name');
+            $inputs = $_GET['brand'];
+            $temp = implode(", ",$inputs);
+            $products = Products::orderBy('id','desc')->whereIn('brands_id',[$temp])->paginate(12);
+            return view('products', compact('products'))->with('brands',$brands);
+        }
     }
 
     public function create()
     {
-        //
+       //
     }
 
 
@@ -88,5 +98,17 @@ class ProductsController extends Controller
     public function destroy(Products $products)
     {
         //
+    }
+
+    public function arrayToString($inputs){
+        $temp = '';
+        foreach($inputs as $key => $item){
+            $temp .=  $item;
+            if($key != sizeof($inputs)-1){
+                $temp .= ' '  ;
+            }
+        }//end of the foreach loop
+
+        return $temp;
     }
 }
