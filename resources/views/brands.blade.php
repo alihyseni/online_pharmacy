@@ -22,9 +22,12 @@
             <div class="row publikimiPage animated fadeInUp">
                 @foreach($brands as $brand)
                 <div class="col-lg-4 col-md-6 col-sm-6 partneretItem" >
-                    <a href="{{route('products.index')}}">
-                        <img class="img-fluid" src="{{asset('images')}}/{{$brand->image}}" style="max-width: 320px; max-height:150px;">
-                    </a>
+                    <form action="{{ route('products.index') }}" method="GET">
+                        <input hidden="hidden" name="brand[]" value="{{$brand->id}}">
+                        <button type="submit">
+                            <img type="submit" class="img-fluid" src="{{asset('images')}}/{{$brand->image}}" style="max-width: 320px; max-height:150px;">
+                        </button>
+                    </form>
                 </div>
                 @endforeach
             </div>

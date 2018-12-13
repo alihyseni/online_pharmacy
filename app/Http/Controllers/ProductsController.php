@@ -21,7 +21,9 @@ class ProductsController extends Controller
             $brands = Brands::all('id','name');
             $inputs = $_GET['brand'];
             $temp = implode(", ",$inputs);
-            $products = Products::orderBy('id','desc')->whereIn('brand_id',[$temp])->paginate(12);
+            //$foo = "'1','2','3','4','5'";
+            //dd($foo);
+            $products = Products::orderBy('id','desc')->OrWhereIn('brands_id',[$temp])->paginate(12);
             return view('products', compact('products'))->with('brands',$brands);
         }
     }
