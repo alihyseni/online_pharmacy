@@ -100,15 +100,4 @@ class ProductsController extends Controller
         //
     }
 
-    public function arrayToString($inputs){
-        $temp = '';
-        foreach($inputs as $key => $item){
-            $temp .=  $item;
-            if($key != sizeof($inputs)-1){
-                $temp .= ' '  ;
-            }
-        }//end of the foreach loop
-
-        return $temp;
-    }
 }
