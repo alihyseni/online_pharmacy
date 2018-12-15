@@ -121,4 +121,15 @@ class CartsController extends Controller
         return redirect('/cart');
     }
 
+    public function placeOrder(Request $request){
+        if(Auth::check()) {
+            $user_id = Auth::id();
+
+            $this->validate($request, [
+                'city' => 'required|numeric|min:1|max:10',
+                '' => 'required|exists:products,id'
+            ]);
+        }
+    }
+
 }

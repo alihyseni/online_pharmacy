@@ -109,7 +109,7 @@
                         <div class="total-wrap">
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <form action="#">
+                                    <form action="{{ route('checkout.index') }}" method="GET">
                                         <div class="row form-group">
                                             <div class="col-sm-9">
                                                 <p>Shipping free for orders over €15.</p>
