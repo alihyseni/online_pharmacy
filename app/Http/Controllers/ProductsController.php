@@ -20,11 +20,8 @@ class ProductsController extends Controller
         }else{
             $brands = Brands::all('id','name');
             $inputs = array_values($_GET['brand']);
-            $temp = implode(", ",$inputs);
-            //dd($temp);
-            //$foo = "'1','2','3','4','5'";
-            //dd($foo);
-            $products = DB::table('products')->orderBy('id','desc')->WhereIn('brands_id', [[$temp]] )->paginate(12);
+            $query = implode(", ",$inputs);
+            $products = DB::table('products')->orderBy('id','desc')->WhereIn('brands_id',[$query])->paginate(12);
             return view('products', compact('products'))->with('brands',$brands);
         }
     }
