@@ -6,13 +6,6 @@
 
 @section('content')
 
-    <style>
-        .page-title{
-            margin-left:25%;
-        }
-    </style>
-
-
     <div class="container">
         <div class="row">
             <h3 class="page-title">Products</h3>
@@ -22,17 +15,21 @@
                 <button type="submit" class="btn btn-success">Add New Product</button>
             </form>
         @endcan
+        <div class="products-container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 products-category">
+                <h5>Brand</h5>
                 <form action="{{ route('products.index') }}" method="GET">
                     @foreach($brands as $brand)
-                    <input type="checkbox" name="brand[]" value="{{$brand->id}}">{{$brand->name}}
+                        <input type="checkbox" name="brand[]" value="{{$brand->id}}"><span>{{$brand->name}}</span>
                     <br>
                     @endforeach
                     <input type="submit">
                 </form>
             </div>
+
             <div class="col-md-10">
+                <div class="row">
                 @foreach($products as $product)
                             <div class="col-md-3">
                                 <div class="products-item">
@@ -72,12 +69,14 @@
                             </div>
                     @endforeach
                 </div>
+                </div>
             </div>
         <div class="row">
             <div class="col-md-12 text-center">
                 {{ $products->links() }}
             </div>
         </div>
+    </div>
     </div>
 
 

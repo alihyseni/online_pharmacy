@@ -21,7 +21,7 @@ h1{
     <div class="container" id="home-content">
         <div class="row">
             <div class="col-md-12">
-                <h1>Welcome to Online Phramacy</h1>
+                <h1>Welcome to Online Pharmacy</h1>
             </div>
         </div>    
     </div>

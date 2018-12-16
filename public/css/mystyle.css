@@ -29,6 +29,10 @@ h1,h2,h3,h4,h5,h6,p,a:hover{
     padding-right:15px;
 }
 
+.page-title{
+    margin:30px auto;
+}
+
 .products-item .name h4{
     font-size: 1.3em;
     color: #fc636b;
@@ -38,6 +42,17 @@ h1,h2,h3,h4,h5,h6,p,a:hover{
 }
 .products-item .name h4:hover{
     text-decoration: none!important;
+}
+
+.products-category{
+    background-color:whitesmoke;
+    padding-top:20px;
+    margin:0 auto;
+}
+
+.products-category form span {
+    letter-spacing: 1px;
+    margin-left:7px;
 }
 
 .item_add_cart form{

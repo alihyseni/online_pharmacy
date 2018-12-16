@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Products;
 use App\Brands;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use function MongoDB\BSON\toJSON;
 
 class ProductsController extends Controller
 {
@@ -19,11 +19,12 @@ class ProductsController extends Controller
             return view('products', compact('products'))->with('brands',$brands);
         }else{
             $brands = Brands::all('id','name');
-            $inputs = $_GET['brand'];
+            $inputs = array_values($_GET['brand']);
             $temp = implode(", ",$inputs);
+            //dd($temp);
             //$foo = "'1','2','3','4','5'";
             //dd($foo);
-            $products = Products::orderBy('id','desc')->OrWhereIn('brands_id',[$temp])->paginate(12);
+            $products = DB::table('products')->orderBy('id','desc')->WhereIn('brands_id', [[$temp]] )->paginate(12);
             return view('products', compact('products'))->with('brands',$brands);
         }
     }
