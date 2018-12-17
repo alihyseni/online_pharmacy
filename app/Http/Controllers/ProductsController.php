@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Products;
 use App\Brands;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class ProductsController extends Controller
@@ -20,8 +19,14 @@ class ProductsController extends Controller
         }else{
             $brands = Brands::all('id','name');
             $inputs = array_values($_GET['brand']);
-            $query = implode(", ",$inputs);
-            $products = DB::table('products')->orderBy('id','desc')->WhereIn('brands_id',[$query])->paginate(12);
+            //$query = implode(", ",$inputs);
+            //$products = DB::table('products')->orderBy('id','desc')->WhereIn('brands_id',[$query])->paginate(12);
+            $query = Products::select();
+            foreach($inputs as $column => $value)
+            {
+                $query->orWhere('brands_id', '=', $value);
+            }
+            $products = $query->orderBy('id','desc')->paginate(12);
             return view('products', compact('products'))->with('brands',$brands);
         }
     }

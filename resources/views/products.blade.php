@@ -84,9 +84,11 @@
 
 @section('scripts')
     <script>
-        // $(document).ready(function(){
-        //     $('.block-27 .page-item,.block-27 .page-link').removeClass();
-        // });
+        $(document).ready(function(){
+            $(".products-category input").click(function(){
+
+            });
+        });
 
     </script>
 @endsection
