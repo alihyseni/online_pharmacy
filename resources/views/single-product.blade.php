@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-<style> #page{
+<style>
+    #page{
         height:auto !important;
     }
 </style>

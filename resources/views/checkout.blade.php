@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="colorlib-product">
         <div class="container">
             <div class="row row-pb-lg">
@@ -26,24 +27,22 @@
                 </div>
             </div>
 
-            <form action="{{ route('checkout.index') }}" method="GET" class="colorlib-form">
+            <form action="{{ route('checkout.store') }}" method="POST" class="colorlib-form">
+                @csrf
                 <div class="row">
                     <div class="col-lg-8">
                         <h2>Shipping Details</h2>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="country">Select Country</label>
+                                    <label for="country">Select City</label>
                                     <div class="form-field">
                                         <i class="icon icon-arrow-down3"></i>
-                                        <select name="city" id="people" class="form-control" required>
-                                            <option value="#">Select City</option>
-                                            <option value="#">Pristina</option>
-                                            <option value="#">Prizren</option>
-                                            <option value="#">Peja</option>
-                                            <option value="#">Mitrovica</option>
-                                            <option value="#">Gjilan</option>
-                                            <option value="#">Gjakova</option>
+                                        <select name="city_id" id="people" class="form-control" required>
+                                            <option value="#" selected disabled hidden>Select City</option>
+                                            @foreach($countries as $country)
+                                                <option value="{{$country->id}}">{{$country->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -66,19 +65,19 @@
                                 <div class="form-group">
                                     <label for="companyname">Company Name</label>
                                     <input type="text" id="companyname" class="form-control"
-                                          name="company" placeholder="Company Name(optional)" required>
+                                          name="company" placeholder="Company Name(optional)">
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="fname">Address</label>
+                                    <label for="address">Address</label>
                                     <input type="text" id="address" class="form-control"
-                                          name="address1" placeholder="Enter Your Address" required>
+                                          name="address" placeholder="Enter Your Address" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" id="address2" class="form-control"
-                                          name="address2" placeholder="Second Address(optional)" required>
+                                          name="address2" placeholder="Second Address(optional)">
                                 </div>
                             </div>
 
@@ -86,7 +85,7 @@
                                 <div class="form-group">
                                     <label for="companyname">Provice/City</label>
                                     <input type="text" id="provincecity" class="form-control"
-                                          name="provincecity" placeholder="Province or City" required>
+                                          name="province" placeholder="Province or City" required>
                                 </div>
                             </div>
 
@@ -127,14 +126,14 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <div class="radio">
-                                                <label><input type="radio" name="optradio"> Direct Bank Tranfer</label>
+                                                <label><input type="radio" name="paymentbank"> Direct Bank Tranfer</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <div class="radio">
-                                                <label><input type="radio" name="optradio"> Payment on arrival</label>
+                                                <label><input type="radio" name="paymentarrival"> Payment on arrival</label>
                                             </div>
                                         </div>
                                     </div>
@@ -154,6 +153,7 @@
                                 <button type="submit" class="btn btn-primary">Place an order</button>
                             </div>
                         </div>
+                        @include('layouts.error')
                     </div>
                 </div>
             </form>

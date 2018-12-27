@@ -43,6 +43,5 @@ Auth::routes();
 
 //-----------------------------User Routes----------------------------
 Route::resource('cart','CartsController')->middleware('auth');
-Route::get('checkout',function(){
-    return view('checkout');
-})->name('checkout.index');
+Route::get('checkout','OrdersController@index')->name('checkout.index')->middleware('auth');
+Route::post('checkout','OrdersController@store')->name('checkout.store');

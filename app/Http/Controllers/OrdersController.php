@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
@@ -13,72 +15,48 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        //
+        $countries = DB::table('countries')->get();
+        return view('checkout',compact('countries',$countries));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        if(Auth::check()) {
+            $user_id = Auth::id();
+
+            $this->validate($request, [
+                'city_id' => 'required',
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'address' => 'required',
+                'province' => 'required',
+                'phone' => 'required|numeric|min:8'
+
+            ]);
+
+
+            $shipping[] = $request->except('terms','paymentbank','paymentarrival','_token');
+            $shipping[0]['user_id'] = $user_id;
+
+            DB::table('shipping')->insert($shipping);
+//            $product_id = $request->product_id;
+//            $quantity = $request->quantity;
+//            //dd(Carts::where([['product_id','=', $product_id], ['user_id', '=', $user_id]])->get(),$user_id,$product_id);
+//            //Check if product exists in Carts table
+//            if(Carts::where(['product_id' => $product_id, 'user_id' => $user_id])->first()){
+//                return $this->update($product_id, $quantity);
+//            }
+//            else{
+//                Carts::create(['user_id'=> $user_id,'product_id'=> $product_id,'quantity' => $quantity]);
+//            }
+        }
+        return redirect('/cart');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

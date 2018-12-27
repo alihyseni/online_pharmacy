@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    <style>
+        #page{
+            height:auto !important;
+        }
+    </style>
 
     <div class="container">
         <div class="row">
@@ -19,7 +24,7 @@
         <div class="row">
             <div class="col-md-2 products-category">
                 <h5>Brand</h5>
-                <form action="{{ route('products.index') }}" method="GET">
+                <form action="{{ route('products.index') }}" method="GET" class="search_form">
                     @foreach($brands as $brand)
                         <input type="checkbox" name="brand[]" value="{{$brand->id}}"><span>{{$brand->name}}</span>
                     <br>
@@ -29,7 +34,9 @@
             </div>
 
             <div class="col-md-10">
+                <div class="products-contain">
                 <div class="row">
+
                 @foreach($products as $product)
                             <div class="col-md-3">
                                 <div class="products-item">
@@ -68,6 +75,7 @@
                                 </div>
                             </div>
                     @endforeach
+                    </div>
                 </div>
                 </div>
             </div>
@@ -83,13 +91,50 @@
 @endsection
 
 @section('scripts')
+    <!--
     <script>
         $(document).ready(function(){
-            $(".products-category input").click(function(){
+            let brand =[];
+            $(".products-category input").change(function(e){
+                e.preventDefault();
+                brand = []; // reset
 
+
+                $('input[name="brand[]"]:checked').each(function()
+                {
+                    brand.push($(this).val());
+
+                });
+
+                // $.post('/products', {brand: brand}, function(markup)
+                // {
+                //     $('.products-item').html(markup);
+                  //  let count = $('#count').val(); // vacancies count, from hidden input
+                   // $(".page-title").html("(" + count + ")");
+                // });
+
+                // let text ="";
+                // for(let i=1;brand >= brand.length;i++){
+                //     text += "brand[]=" + brand[i];
+                // }
+                // alert(text);
+
+                let url = window.location + "?brand[]=" + brand;
+                alert(url);
+                $.ajax({
+                    type: 'get',
+                    url: url,
+                    success: function (html) {
+                        let products = $(html).find(".products-contain");
+                        console.log(products);
+                        window.history.pushState("Details", "Title", url);
+                        $(".products-contain").empty().append(products);
+                    }
+                });
             });
+
         });
 
     </script>
+    -->
 @endsection
-

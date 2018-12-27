@@ -16,16 +16,16 @@ class CreateShippingTable extends Migration
         Schema::create('shipping', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('country_id')->unsigned();
+            $table->integer('city_id')->unsigned();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('company')->nullable();
             $table->string('address');
             $table->string('address2')->nullable();
             $table->string('province');
-            $table->integer('number');
+            $table->integer('phone');
             $table->timestamps();
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('countries')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
