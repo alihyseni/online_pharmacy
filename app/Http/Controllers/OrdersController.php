@@ -29,17 +29,15 @@ class OrdersController extends Controller
 
         if(Auth::check()) {
             $user_id = Auth::id();
-
             $this->validate($request, [
                 'city_id' => 'required',
                 'firstname' => 'required',
                 'lastname' => 'required',
                 'address' => 'required',
                 'province' => 'required',
-                'phone' => 'required|numeric|min:8'
-
+                'phone' => 'required|numeric|min:8',
+                'terms' => 'required'
             ]);
-
 
             $shipping[] = $request->except('terms','paymentbank','paymentarrival','_token');
             $shipping[0]['user_id'] = $user_id;
@@ -56,7 +54,7 @@ class OrdersController extends Controller
 //                Carts::create(['user_id'=> $user_id,'product_id'=> $product_id,'quantity' => $quantity]);
 //            }
         }
-        return redirect('/cart');
+        return view('order-completed');
     }
 
 }

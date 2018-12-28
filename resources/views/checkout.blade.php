@@ -140,7 +140,7 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <div class="checkbox">
-                                                <label><input type="checkbox" name="terms" value=""> I have read and accept the terms
+                                                <label><input type="checkbox" name="terms" value="accept"> I have read and accept the terms
                                                     and conditions</label>
                                             </div>
                                         </div>
