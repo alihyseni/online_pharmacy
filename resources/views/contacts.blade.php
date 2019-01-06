@@ -33,39 +33,40 @@ Contact | Pharmacy
                         @if (Session::has('message'))
                             <div class="alert alert-info">{{ Session::get('message') }}</div>
                         @endif
-                        <form action="#" class="contact-form">
+                        <form action="/contact" class="contact-form" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="fname">First Name</label>
-                                        <input type="text" id="fname" class="form-control" placeholder="Your firstname">
+                                        <input name="fname" type="text" id="fname" class="form-control" placeholder="Your firstname" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="lname">Last Name</label>
-                                        <input type="text" id="lname" class="form-control" placeholder="Your lastname">
+                                        <input name="lname" type="text" id="lname" class="form-control" placeholder="Your lastname">
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="text" id="email" class="form-control" placeholder="Your email address">
+                                        <input name="email" type="email" id="email" class="form-control" placeholder="Your email address" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
-                                        <input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+                                        <input name="subject" type="text" id="subject" class="form-control" placeholder="Your subject of this message">
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <textarea name="message" id="message" cols="30" rows="6" class="form-control" placeholder="Say something about us"></textarea>
+                                        <textarea name="message" id="message" cols="30" rows="6" class="form-control" placeholder="Say something about us" required></textarea>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
@@ -77,6 +78,7 @@ Contact | Pharmacy
                             </div>
                         </form>
                     </div>
+                    @include('layouts.error')
                 </div>
                 <div class="col-md-6">
                     <iframe width="100%" height="620" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=prishtine+(Pharmacy)&amp;ie=UTF8&amp;t=&amp;z=9&amp;iwloc=B&amp;output=embed" frameborder="0"  marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google Maps iframe generator</a></iframe>

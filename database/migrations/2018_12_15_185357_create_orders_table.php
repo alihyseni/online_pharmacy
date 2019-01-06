@@ -16,7 +16,6 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('order_detail')->unsigned();
             $table->integer('shipping_id')->unsigned();
             $table->integer('delivery_price');
             $table->float('total');
@@ -24,7 +23,6 @@ class CreateOrdersTable extends Migration
             $table->boolean('status');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('order_detail')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('shipping_id')->references('id')->on('shipping')->onDelete('cascade');
         });
     }

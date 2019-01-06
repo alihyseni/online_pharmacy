@@ -45,3 +45,25 @@ Auth::routes();
 Route::resource('cart','CartsController')->middleware('auth');
 Route::get('checkout','OrdersController@index')->name('checkout.index')->middleware('auth');
 Route::post('checkout','OrdersController@store')->name('checkout.store');
+
+Route::post('contact',function()
+{
+    $data=\Illuminate\Support\Facades\Input::all();
+    $rules=array('subject'=>'required','message'=>'required', 'email' => 'required', 'fname'=> 'required', 'lname'=> 'required');
+    $validator =Validator::make($data,$rules);
+
+    if($validator->fails()){
+        return Redirect::to('contacts')->withErrors($validator)->withInput();
+    }
+
+    $emailcontent = array (
+        'subject' => $data['subject'],
+        'emailmessage' => $data['message'],
+        'fullname' => $data['fname'] . " " . $data['lname'],
+        'email' => $data['email']
+    );
+
+    \Illuminate\Support\Facades\Mail::to('ali.hyseni341@gmail.com')->send(new App\Mail\ContactEmail($emailcontent));
+    session()->flash('message', 'Successfully sent the form.');
+    return redirect()->back();
+});
