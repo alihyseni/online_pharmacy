@@ -63,7 +63,7 @@ Route::post('contact',function()
         'email' => $data['email']
     );
 
-    \Illuminate\Support\Facades\Mail::to('ali.hyseni341@gmail.com')->send(new App\Mail\ContactEmail($emailcontent));
+    \Illuminate\Support\Facades\Mail::to(env('MAIL_FROM_ADDRESS'))->send(new App\Mail\ContactEmail($emailcontent));
     session()->flash('message', 'Successfully sent the form.');
     return redirect()->back();
 });

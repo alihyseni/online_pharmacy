@@ -35,10 +35,9 @@ class ContactEmail extends Mailable
         $name = $this->data['fullname'];
         //dd($this->data);
         return $this->view('email.send')
-            ->from($address, $name)
-            ->cc($address, $name)
-            ->bcc($address, $name)
-            ->replyTo($address, $name)
+            ->from($address)
+            ->cc($address)
+            ->bcc($address)
             ->subject($subject)
             ->with('emailmessage', $this->data );
     }
